@@ -45,8 +45,8 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| item     | reference  | null: false, foreign_key: true   |
-| user     | reference  | null: false, foreign_key: true   |
+| item     | references  | null: false, foreign_key: true   |
+| user     | references  | null: false, foreign_key: true   |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | post           | string       | null: false                    |
-| prefecture_id  | string      | null: false                      |
+| prefecture_id  | integer      | null: false                      |
 | city           | string       | null: false                     |
 | address      | string     | null: false                    |
 | building      | string     |                                 |
