@@ -5,15 +5,14 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | name              | string     | null: false                    |
-| image            | string       | null: false                    |
 | details           | text       | null: false                    |
 | price             | integer     | null: false                    |
-| category          | string     | null: false                    |
-| condition          | string     | null: false                    |
-| shipping_charge      | string     | null: false                    |
-| ship_from          | string     | null: false                    |
-| ship_date           | string     | null: false, foreign_key: true    |
-| user_id            | references     | null: false, foreign_key: true  |
+| category_id          | string     | null: false                    |
+| condition_id          | string     | null: false                    |
+| shipping_charge_id     | string     | null: false                    |
+| prefecture_id          | string     | null: false                    |
+| ship_date_id           | string     | null: false                    |
+| user                   | references     | null: false, foreign_key: true  |
 
 
 ### Association
@@ -34,7 +33,7 @@
 | family_name_kanji      | string   | null: false                |
 | first_name_kana        | string   | null: false                |
 | family_name_kana       | string   | null: false                |
-| birthday               | integer  | null: false                |
+| birthday               | date     | null: false                |
 
 ### Association
 
@@ -47,8 +46,8 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| purchase    | string     | null: false                    |
-| user_id     | reference  | null: false                    |
+| item     | reference  | null: false, foreign_key: true   |
+| user     | reference  | null: false, foreign_key: true   |
 
 ### Association
 
@@ -61,12 +60,13 @@
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
-| post       | string       | null: false                    |
-| prefecture  | string      | null: false                      |
-| city        | string       | null: false                     |
+| post           | string       | null: false                    |
+| prefecture_id  | string      | null: false                      |
+| city           | string       | null: false                     |
 | address_1      | string     | null: false                    |
 | address_2      | string     |                                 |
-| phone_number   | integer     | null: false                    |
+| phone_number   | string     | null: false                    |
+| purchase       | references     | null: false, foreign_key: true  |
 
 ### Association
 
@@ -80,8 +80,8 @@
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | comment    | text       | null: false                    |
-| item_id     | references | null: false, foreign_key: true |
-| user_id     | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
+| user       | references | null: false, foreign_key: true |
 
 ### Association
 
