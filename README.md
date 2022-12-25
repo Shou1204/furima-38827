@@ -7,20 +7,19 @@
 | name              | string     | null: false                    |
 | details           | text       | null: false                    |
 | price             | integer     | null: false                    |
-| category_id          | string     | null: false                    |
-| condition_id          | string     | null: false                    |
-| shipping_charge_id     | string     | null: false                    |
-| prefecture_id          | string     | null: false                    |
-| ship_date_id           | string     | null: false                    |
+| category_id          | integer     | null: false                    |
+| condition_id          | integer     | null: false                    |
+| shipping_charge_id     | integer     | null: false                    |
+| prefecture_id          | integer     | null: false                    |
+| ship_date_id           | integer     | null: false                    |
 | user                   | references     | null: false, foreign_key: true  |
 
 
 ### Association
 
 - belongs_to :user
-- has_many :comments
 - has_one :purchase
-
+<!-- - has_many :comments -->
 
 ## users テーブル
 
@@ -38,8 +37,8 @@
 ### Association
 
 - has_many :items
-- has_many :comments
 - has_many :purchases
+<!-- - has_many :comments -->
 
 
 ## purchases テーブル
@@ -63,8 +62,8 @@
 | post           | string       | null: false                    |
 | prefecture_id  | string      | null: false                      |
 | city           | string       | null: false                     |
-| address_1      | string     | null: false                    |
-| address_2      | string     |                                 |
+| address      | string     | null: false                    |
+| building      | string     |                                 |
 | phone_number   | string     | null: false                    |
 | purchase       | references     | null: false, foreign_key: true  |
 
@@ -75,7 +74,7 @@
 
 
 
-## comments テーブル
+<!-- ## comments テーブル
 
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
@@ -86,4 +85,4 @@
 ### Association
 
 - belongs_to :item
-- belongs_to :user
+- belongs_to :user -->
