@@ -76,7 +76,7 @@ RSpec.describe Item, type: :model do
       it 'priceが小数点を含む数字では出品できない' do
         @item.price = "7777.77"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price ¥300~¥9,999,999の範囲でご入力ください")
+        expect(@item.errors.full_messages).to include("Price 整数でご入力ください")
       end
       it 'userが紐づいていないと保存できない' do
         @item.user = nil
