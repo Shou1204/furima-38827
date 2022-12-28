@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   validates :name,                presence: true
   validates :details,             presence: true
   validates :price,               presence: true,
-                                  numericality: { greater_than: 299, less_than: 10_000_000, message: '¥300~¥9,999,999の範囲でご入力ください' }
+                                  numericality: { only_integer: true, greater_than: 299, less_than: 10_000_000, message: '¥300~¥9,999,999の範囲でご入力ください'}
   validates :category_id,         presence: true, numericality: { other_than: 1, message: 'カテゴリーを選んでください' }
   validates :condition_id,        presence: true, numericality: { other_than: 1, message: '商品の状態を選んでください' }
   validates :shipping_charge_id,  presence: true, numericality: { other_than: 1, message: '配送料の負担を選んでください' }
