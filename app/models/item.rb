@@ -19,7 +19,4 @@ class Item < ApplicationRecord
   validates :user_id,             presence: true
 
   validates :image, attached: true
-  # def was_attached?
-  #   self.image.attached?
-  # end
 end
