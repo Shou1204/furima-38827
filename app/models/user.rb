@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :items
+
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[!-~]{6,}+\z/, message: '半角英数字混合での入力が必要です' }
   validates :nickname, presence: true
   validates :first_name_kanji, presence: true,
