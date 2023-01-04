@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :move_to_index
 
   def index
     @item = Item.find(params[:item_id])
@@ -23,5 +24,10 @@ class PurchasesController < ApplicationController
     params.require(:purchase_destination).permit(:post, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], purchase_id: params[:item_id])
   end
 
-
+  def move_to_index
+    item = Item.find(params[:item_id])
+    if current_user == item.user
+      redirect_to root_path
+    end
+  end
 end
