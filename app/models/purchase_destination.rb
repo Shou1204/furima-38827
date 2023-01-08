@@ -11,7 +11,7 @@ class PurchaseDestination
     validates :item_id
     validates :phone_number
     validates :post
-    # validates :token
+    validates :token
   end
   validates :prefecture_id, numericality: { other_than: 1, message: '発送元の地域を選んでください' }
   validates :phone_number, format: { with: /\A[0-9]{10}$|^[0-9]{11}\z/, message: '電話番号は10桁から11桁で入力してください' }
