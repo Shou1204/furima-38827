@@ -60,6 +60,11 @@ RSpec.describe PurchaseDestination, type: :model do
         @purchase_destination.valid?
         expect(@purchase_destination.errors.full_messages).to include('Phone number 電話番号は10桁から11桁で入力してください')
       end
+      it 'phone_number半角数字以外が含まれている場合は購入できない' do
+        @purchase_destination.phone_number = '１２３４５６７８９０'
+        @purchase_destination.valid?
+        expect(@purchase_destination.errors.full_messages).to include("Phone number 電話番号は10桁から11桁で入力してください")
+      end
       it 'item_idが空だと保存できない' do
         @purchase_destination.item_id = nil
         @purchase_destination.valid?
