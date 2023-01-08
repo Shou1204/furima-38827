@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     @purchase_destination = PurchaseDestination.new(purchase_params)
     if @purchase_destination.valid?
-      # pay_item
+      pay_item
       @purchase_destination.save
       redirect_to root_path
     else
