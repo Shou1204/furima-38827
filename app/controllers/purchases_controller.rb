@@ -1,14 +1,13 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :set_item, only: [:index, :create, :move_to_index, :pay_item]
   before_action :move_to_index
 
   def index
-    @item = Item.find(params[:item_id])
     @purchase_destination = PurchaseDestination.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_destination = PurchaseDestination.new(purchase_params)
     if @purchase_destination.valid?
       pay_item
@@ -28,17 +27,19 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_index
-    item = Item.find(params[:item_id])
-    if current_user == item.user || item.purchases.ids != []
+    if current_user == @item.user || @item.purchases.ids != []
       redirect_to root_path
     end
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def pay_item
-    item = Item.find(params[:item_id])
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: item[:price],
+      amount: @item[:price],
       card: purchase_params[:token],
       currency: 'jpy'
     )
