@@ -1,0 +1,40 @@
+.comment-form{
+  display: flex;
+}
+
+.comment-text{
+  display: block;
+  margin-top: 20px;
+}
+
+.comment-submit{
+  display: block;
+  margin-top: 20px;
+}
+
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
+}
+
+.user-info{
+  color: gray;
+  font-weight: bold;
+}
+
+.comments{
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 1200px;
+  margin-top: 5vh;
+  padding: 40px 0 40px 15vw;
+}
+
+.comments h4{
+  font-size: 18px;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
