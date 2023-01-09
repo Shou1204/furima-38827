@@ -13,7 +13,6 @@ class PurchaseDestination
     validates :post
     validates :token
   end
-  validates :prefecture_id, numericality: { other_than: 1, message: '発送元の地域を選んでください' }
   validates :phone_number, format: { with: /\A[0-9]{10}$|^[0-9]{11}\z/, message: '電話番号は10桁から11桁で入力してください' }
   validates :post, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: '郵便番号は「ハイフン(-)」を含めた正しい形式でご入力ください' }
 
