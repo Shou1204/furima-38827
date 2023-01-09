@@ -77,6 +77,17 @@
     </div>
   </div>
   <%# /商品の概要 %>
+  <%# コメント表示機能 %>
+  <div id="comments" class="comments">
+  <h4>コメント一覧</h4>
+    <% @item.comments.each do |comment| %>
+      <div class="comment">
+        <p class="user-info"><%= comment.user.nickname %>： </p>
+        <p><%= comment.text%></p>
+      </div>
+    <% end %>
+  </div>
+  <%# /コメント表示機能 %>
   <%# コメント投稿機能 %>
   <% if user_signed_in? %>
     <%= form_with model: [@item, @comment],class:"comment-box", id: "comment-form" do |f| %>
