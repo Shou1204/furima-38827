@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :items
   has_one :purchase
+  has_many :comments
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[!-~]{6,}+\z/, message: '半角英数字混合での入力が必要です' }
   validates :nickname, presence: true
