@@ -111,9 +111,9 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   #  renderへデプロイするための設定
-  ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = "wss://furima-38827.onrender.com/cable" 
-  config.action_cable.allowed_request_origins = ['https://furima-38827.onrender.com', 'http://furima-38827.onrender.com']
+  # ActionCable.server.config.disable_request_forgery_protection = true
+  # config.action_cable.url = "wss://furima-38827.onrender.com/cable" 
+  # config.action_cable.allowed_request_origins = ['https://furima-38827.onrender.com', 'http://furima-38827.onrender.com']
   # /renderへデプロイするための設定
 
 
