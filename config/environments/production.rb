@@ -118,7 +118,7 @@ Rails.application.configure do
 
   # AWSへデプロイするための設定
   ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = "ws://35.79.231.12/cable" 
+  config.action_cable.url = "ws://35.79.231.12/cable"
   config.action_cable.allowed_request_origins = ['http://35.79.231.12']
   # /AWSへデプロイするための設定
 
